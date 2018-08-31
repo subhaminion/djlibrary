@@ -17,10 +17,11 @@
 			        <td>{{ author.first_name }}</td>
 			        <td>{{ author.last_name }}</td>
 			        <td>{{ author.email }}</td>
-			        <td>{% url "book_list" author.id %}"</td>
+			        <td><a href="{% url "book_list" author.id %}">Show Books</a></td>
 			    </tr>
 	      	{% endfor %}
 	    </tbody>
 	  </table>
+	  <a href="{% url "author_create" %}">Add New Author</a>
 	</div>
 {% endblock %}

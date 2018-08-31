@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body %}
+	<div class="container">
+	  <h2>Book and Author list</h2>
+	  <table class="table">
+	    <thead>
+	      <tr>
+	        <th>Title</th>
+	        <th>Authors</th>
+	        <th>Published</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	    	{% for book in object_list %}
+			    <tr>
+			        <td>{{ book.title }}</td>
+			        {% for author in book.authors %}
+			        	<td>{{ author.title }}</td>
+			        {% endfor %}
+			        <td>{{ book.publication_date }}</td>
+			    </tr>
+	      	{% endfor %}
+	    </tbody>
+	  </table>
+	</div>
+{% endblock %}

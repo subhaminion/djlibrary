@@ -28,8 +28,9 @@ def book_create(request, template_name="post_book.html"):
     return render(request, template_name, {'form': form})
 
 
-def book_list(request, template_name="book_list.html"):
-    books = Book.objects.all()
+def book_list(request, pk, template_name="book_list.html"):
+    author = get_object_or_404(Author, pk=pk)
+    books = author.book_set.all()
     data = {}
     data['object_list'] = books
     return render(request, template_name, data)

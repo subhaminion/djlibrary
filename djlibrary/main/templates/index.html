@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% block body %}
 	<div class="container">
-	  <h2>Book and Author list</h2>
+	  <h2>Author list</h2>
 	  <table class="table">
 	    <thead>
 	      <tr>
 	        <th>Firstname</th>
 	        <th>Lastname</th>
 	        <th>Email</th>
+	        <th>Books</th>
 	      </tr>
 	    </thead>
 	    <tbody>
@@ -16,6 +17,7 @@
 			        <td>{{ author.first_name }}</td>
 			        <td>{{ author.last_name }}</td>
 			        <td>{{ author.email }}</td>
+			        <td>{% url "book_list" author.id %}"</td>
 			    </tr>
 	      	{% endfor %}
 	    </tbody>
